@@ -40,14 +40,23 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     let position = $(this).scrollTop();
-    if (position >= 4800) {
+    if (position >= 4600) {
       $(".card-1").addClass("moveFromLeft");
       $(".card-2").addClass("moveFromBottom");
       $(".card-3").addClass("moveFromRight");
     } else {
-        $(".card-1").removeClass("moveFromLeft");
-        $(".card-2").removeClass("moveFromBottom");
-        $(".card-3").removeClass("moveFromRight");
+      $(".card-1").removeClass("moveFromLeft");
+      $(".card-2").removeClass("moveFromBottom");
+      $(".card-3").removeClass("moveFromRight");
     }
+  });
+
+  $(".nav-link").on("click", function () {
+    let anc = '#' + $(this).text().toLowerCase();
+    $('.nav-link.nav-active').removeClass("nav-active");
+    $(this).addClass("nav-active");
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $(anc).offset().top + 1
+  }, 1500);
   });
 });
