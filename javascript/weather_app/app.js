@@ -3,6 +3,7 @@ const card = document.querySelector(".card");
 const details = document.querySelector(".details");
 const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
+const textErr = document.querySelector(".text-err");
 
 const updateUI = (data) => {
   const { cityDets, weather } = data;
@@ -46,8 +47,11 @@ cityForm.addEventListener("submit", (e) => {
   updateCity(city)
     .then((data) => {
       updateUI(data);
+      textErr.classList.add("d-none");
     })
     .catch((err) => {
       console.log(err);
+      card.classList.add("d-none");
+      textErr.classList.remove("d-none");
     });
 });
