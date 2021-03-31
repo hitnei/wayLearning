@@ -42,16 +42,18 @@ cityForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const city = cityForm.city.value.trim();
-  cityForm.reset();
+  if (city !== "") {
+    cityForm.reset();
 
-  updateCity(city)
-    .then((data) => {
-      updateUI(data);
-      textErr.classList.add("d-none");
-    })
-    .catch((err) => {
-      console.log(err);
-      card.classList.add("d-none");
-      textErr.classList.remove("d-none");
-    });
+    updateCity(city)
+      .then((data) => {
+        updateUI(data);
+        textErr.classList.add("d-none");
+      })
+      .catch((err) => {
+        console.log(err);
+        card.classList.add("d-none");
+        textErr.classList.remove("d-none");
+      });
+  }
 });
