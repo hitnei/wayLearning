@@ -55,5 +55,7 @@ cityForm.addEventListener("submit", (e) => {
         card.classList.add("d-none");
         textErr.classList.remove("d-none");
       });
+  } else {
+    textErr.classList.add("d-none");
   }
 });
