@@ -48,6 +48,8 @@ cityForm.addEventListener("submit", (e) => {
     updateCity(city)
       .then((data) => {
         updateUI(data);
+        // set local storage
+        localStorage.setItem('city', city);
         textErr.classList.add("d-none");
       })
       .catch((err) => {
@@ -59,3 +61,16 @@ cityForm.addEventListener("submit", (e) => {
     textErr.classList.add("d-none");
   }
 });
+
+if (localStorage.getItem('city')) {
+  updateCity(localStorage.getItem('city'))
+    .then((data) => {
+      updateUI(data);
+      textErr.classList.add("d-none");
+    })
+    .catch((err) => {
+      console.log(err);
+      card.classList.add("d-none");
+      textErr.classList.remove("d-none");
+    });
+}
