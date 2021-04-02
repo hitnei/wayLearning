@@ -2,4 +2,6 @@ const greet = (name) => {
   console.log(`hello ${name}`);
 };
 
-greet("shaun");
+greet("a");
+greet("b");
+greet("c");

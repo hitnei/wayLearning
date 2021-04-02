@@ -4,4 +4,6 @@ const greet = name => {
   console.log("hello ".concat(name));
 };
 
-greet("shaun");
+greet("a");
+greet("b");
+greet("c");
